@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "MainViewController.h"
+#import "SignUpViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UINavigationControllerDelegate>
 
 @end
 
@@ -17,7 +20,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    return YES;
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    // 宣告一個 view controller 並指定背景為灰色
+    [self goLogin];
+    
+    return TRUE;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -40,6 +49,30 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)getStart{
+    MainViewController* rootViewController = [[MainViewController alloc] init];
+    // 指定 root view controller
+    self.navController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    self.window.rootViewController = self.navController;
+    [self.window makeKeyAndVisible];
+}
+-(void)goLogin{
+    LoginViewController* rootViewController = [[LoginViewController alloc] init];
+    
+    // 指定 root view controller
+    self.window.rootViewController = rootViewController;
+    
+    [self.window makeKeyAndVisible];
+}
+-(void)goSignup{
+    SignUpViewController* rootViewController = [[SignUpViewController alloc] init];
+    
+    // 指定 root view controller
+    self.window.rootViewController = rootViewController;
+    
+    [self.window makeKeyAndVisible];
 }
 
 @end
