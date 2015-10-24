@@ -143,7 +143,7 @@ static CGFloat SWITCH_FOCUS_PICTURE_INTERVAL = 3.0; //switch interval time
 
 - (void)moveToTargetPosition:(CGFloat)targetX
 {
-    NSLog(@"moveToTargetPosition : %f" , targetX);
+//    NSLog(@"moveToTargetPosition : %f" , targetX);
     if (targetX >= _scrollView.contentSize.width) {
         targetX = 0.0;
     }

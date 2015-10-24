@@ -9,6 +9,7 @@
 #import "SignUpViewController.h"
 #import "LoginViewController.h"
 #import "AppDelegate.h"
+#import "GMDCircleLoader.h"
 
 @interface SignUpViewController ()<UITextFieldDelegate>{
     
@@ -27,8 +28,6 @@
     float viewHeight = self.view.frame.size.height;
     
     self.view.backgroundColor = [UIColor blackColor];
-    
-    
     
     UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)];
     [tapBackground setNumberOfTapsRequired:1];
@@ -178,6 +177,8 @@
 }
 
 -(void)onforgetPassClicked:(UITapGestureRecognizer*)sender{
+    
+    [GMDCircleLoader hideFromView:self.view animated:YES];
     NSLog(@"BiuBiuBiu!");
 }
 
@@ -201,6 +202,8 @@
 
 -(void)getYzmBtnClicked{
     NSLog(@"Get!");
+    
+    [GMDCircleLoader setOnView:self.view withTitle:@"Loading..." animated:YES];
 }
 
 -(void)signupBtnClicked{
